@@ -1,4 +1,4 @@
-# ModelCreationFromVariables
+# ModelCreationFromVariables for iOS App (Swift)
 
 Do you have a large model file to be created with the json response? Here it is a simple mac app where in you can paste your json response key value pairs like the one's below and obtain the model created for you. You just have to paste the output into you swift file.
 
