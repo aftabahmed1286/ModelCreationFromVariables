@@ -18,7 +18,7 @@ class Model: Codable {
       **************************************************/
       var key1: String?
       var key2: String?
-      var key3”: String?
+      var key3: String?
 
 
       /**************************************************
@@ -27,7 +27,29 @@ class Model: Codable {
       enum CodingKeys: String, CodingKey {
             case key1
             case key2
-            case key3”
+            case key3
+      }
+
+
+      /**************************************************
+      Decoder for Codable
+      **************************************************/
+      required  init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            self.key1 = try container.decodeIfPresent(String.self, forKey: .key1)
+            self.key2 = try container.decodeIfPresent(String.self, forKey: .key2)
+            self.key3 = try container.decodeIfPresent(String.self, forKey: .key3)
+      }
+
+
+      /**************************************************
+      Encoder for Codable
+      **************************************************/
+      func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(self.key1, forKey: .key1)
+            try container.encode(self.key2, forKey: .key2)
+            try container.encode(self.key3, forKey: .key3)
       }
 
 
